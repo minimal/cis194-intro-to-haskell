@@ -37,7 +37,7 @@ sumDigits = foldr (\x -> (+) (lastDigit x + dropLastDigit x)) 0
 
 -- Validate a credit card number using the above functions.
 luhn :: Integer -> Bool
-luhn x = (==) 0 $ (`mod` 10) . sumDigits . doubleEveryOther $ toRevDigits x
+luhn = (==) 0 . (`mod` 10) . sumDigits . doubleEveryOther . toRevDigits
 
 -- Exercise 6 -----------------------------------------
 
